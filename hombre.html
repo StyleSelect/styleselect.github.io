@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>StyleSelect | Hombre</title>
+    <meta name="description" content="Relojes de hombre seleccionados por StyleSelect.">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="men-page">
+    <header class="site-header solid">
+      <nav class="nav" aria-label="Navegacion principal">
+        <a class="brand" href="index.html">StyleSelect</a>
+        <div class="nav-links">
+          <a href="index.html">Inicio</a>
+          <a href="catalogo.html">Catalogo</a>
+          <div class="dropdown">
+            <button class="drop-button" type="button">Categorias</button>
+            <div class="drop-menu">
+              <a href="categorias.html">Todas</a>
+              <a href="hombre.html">Hombre</a>
+              <a href="mujer.html">Mujer</a>
+              <a href="nino.html">Niño</a>
+            </div>
+          </div>
+          <a href="afiliacion.html">Afiliacion</a>
+          <a href="contacto.html">Contacto</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="men-hero">
+        <div class="men-hero-copy reveal">
+          <p class="kicker">Categoria hombre</p>
+          <h1>Relojes que dan presencia.</h1>
+          <p>
+            Piezas con acero, esfera marcada y una imagen fuerte. Entra en cada
+            reloj para ver detalles, fotos y compra.
+          </p>
+        </div>
+
+        <div class="interactive-watch reveal" aria-label="Reloj decorativo interactivo">
+          <div class="watch-orbit"></div>
+          <div class="watch-body">
+            <span class="watch-hand hand-hour"></span>
+            <span class="watch-hand hand-minute"></span>
+            <span class="watch-center"></span>
+          </div>
+        </div>
+      </section>
+
+      <section class="men-store" aria-label="Relojes de hombre">
+        <div class="men-store-heading reveal">
+          <p class="kicker">Menu de productos</p>
+          <h2>Elige tu reloj</h2>
+        </div>
+
+        <form class="watch-filters reveal" aria-label="Buscar y filtrar relojes">
+          <label>
+            <span>Buscar</span>
+            <input class="watch-search" type="search" placeholder="Buscar modelo, marca o estilo">
+          </label>
+          <label>
+            <span>Precio maximo</span>
+            <select class="watch-price">
+              <option value="all">Todos</option>
+              <option value="100">Hasta 100€</option>
+              <option value="150">Hasta 150€</option>
+              <option value="250">Hasta 250€</option>
+            </select>
+          </label>
+          <label>
+            <span>Estilo</span>
+            <select class="watch-style">
+              <option value="all">Todos</option>
+              <option value="elegante">Elegante</option>
+              <option value="lujo">Lujo</option>
+              <option value="automatico">Automatico</option>
+              <option value="deportivo">Deportivo</option>
+              <option value="gmt">GMT</option>
+            </select>
+          </label>
+        </form>
+
+        <p class="filter-empty" hidden>No hay relojes que coincidan con esos filtros.</p>
+
+        <div class="men-product-grid watch-grid">
+          <a class="men-product-card reveal watch-item" href="producto-pd1644.html" data-name="pagani design pd-1644 cronografo deportivo" data-price="130" data-style="deportivo lujo elegante">
+            <img src="images/PaganiDesignPD1644_RolexDaytona/foto2.jpg" alt="Pagani Design PD-1644">
+            <span>Pagani Design PD-1644</span>
+          </a>
+          <a class="men-product-card reveal watch-item" href="producto-dd40.html" data-name="pagani design dd40 automatico esfera azul elegante" data-price="140" data-style="automatico elegante lujo">
+            <img src="assets/products/dd40-transparent.png" alt="Pagani Design DD40">
+            <span>Pagani Design DD40</span>
+          </a>
+          <a class="men-product-card reveal watch-item" href="producto-pd1728.html" data-name="pagani design pd-1728 automatico nautilus azul" data-price="150" data-style="automatico lujo elegante deportivo">
+            <img src="assets/products/pd1728-transparent.png" alt="Pagani Design PD-1728">
+            <span>Pagani Design PD-1728</span>
+          </a>
+          <a class="men-product-card reveal watch-item" href="producto-pd1662.html" data-name="pagani design pd-1662 gmt submariner" data-price="130" data-style="gmt deportivo lujo">
+            <img src="images/Pagani%20desing%20%20PD-1662%20GMT_RolexSubmariner/1.jpg" alt="Pagani Design PD-1662 GMT">
+            <span>Pagani Design PD-1662 GMT</span>
+          </a>
+          <a class="men-product-card reveal watch-item" href="producto-megalith-8290m.html" data-name="megalith 8290m deportivo negro dorado" data-price="90" data-style="deportivo moderno">
+            <img src="assets/products/megalith-8290m-transparent.png" alt="Megalith 8290M">
+            <span>Megalith 8290M</span>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-inner">
+        <span>StyleSelect</span>
+        <span>Categoria Hombre.</span>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

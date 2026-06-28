@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>StyleSelect | Mujer</title>
+    <meta name="description" content="Relojes de mujer seleccionados por StyleSelect.">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="women-page">
+    <header class="site-header solid">
+      <nav class="nav" aria-label="Navegacion principal">
+        <a class="brand" href="index.html">StyleSelect</a>
+        <div class="nav-links">
+          <a href="index.html">Inicio</a>
+          <a href="catalogo.html">Catalogo</a>
+          <div class="dropdown">
+            <button class="drop-button" type="button">Categorias</button>
+            <div class="drop-menu">
+              <a href="categorias.html">Todas</a>
+              <a href="hombre.html">Hombre</a>
+              <a href="mujer.html">Mujer</a>
+              <a href="nino.html">Niño</a>
+            </div>
+          </div>
+          <a href="afiliacion.html">Afiliacion</a>
+          <a href="contacto.html">Contacto</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="women-hero">
+        <div class="women-copy reveal">
+          <p class="kicker">Categoria mujer</p>
+          <h1>Resalta tu estilo.</h1>
+          <p>
+            Relojes pensados para acompañar tu forma de vestir: elegantes,
+            delicados y con ese detalle que completa el look.
+          </p>
+          <a class="button button-pink" href="contacto.html">Proponer un reloj</a>
+        </div>
+
+        <div class="women-visual reveal">
+          <img src="assets/mujer-hero-model.png" alt="Modelo elegante con reloj en tonos blanco y fucsia">
+          <span class="pink-glow" aria-hidden="true"></span>
+        </div>
+      </section>
+
+      <section class="women-empty reveal">
+        <p class="kicker">Seleccion pendiente</p>
+        <h2>Lista para nuevos relojes de mujer</h2>
+        <p>
+          Cuando añadas fotos y enlace en `LINKS.TXT`, esta seccion mostrara un
+          menu propio igual que Hombre, pero con estilo claro, femenino y visual.
+        </p>
+        <form class="watch-filters light-filters" aria-label="Buscar y filtrar relojes de mujer">
+          <label>
+            <span>Buscar</span>
+            <input class="watch-search" type="search" placeholder="Buscar reloj de mujer">
+          </label>
+          <label>
+            <span>Precio maximo</span>
+            <select class="watch-price">
+              <option value="all">Todos</option>
+              <option value="100">Hasta 100€</option>
+              <option value="150">Hasta 150€</option>
+              <option value="250">Hasta 250€</option>
+            </select>
+          </label>
+          <label>
+            <span>Estilo</span>
+            <select class="watch-style">
+              <option value="all">Todos</option>
+              <option value="elegante">Elegante</option>
+              <option value="lujo">Lujo</option>
+              <option value="automatico">Automatico</option>
+            </select>
+          </label>
+        </form>
+        <p class="filter-empty">Aun no hay relojes de mujer con enlace real.</p>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-inner">
+        <span>StyleSelect</span>
+        <span>Categoria Mujer.</span>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>
