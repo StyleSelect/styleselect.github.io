@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>StyleSelect | Niño</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="site-header solid">
+      <nav class="nav" aria-label="Navegacion principal">
+        <a class="brand" href="index.html">StyleSelect</a>
+        <div class="nav-links">
+          <a href="index.html">Inicio</a>
+          <a href="catalogo.html">Catalogo</a>
+          <div class="dropdown"><button class="drop-button" type="button">Categorias</button><div class="drop-menu"><a href="categorias.html">Todas</a><a href="hombre.html">Hombre</a><a href="mujer.html">Mujer</a><a href="nino.html">Niño</a></div></div>
+          <a href="afiliacion.html">Afiliacion</a>
+          <a href="contacto.html">Contacto</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="page-hero">
+        <div>
+          <p class="kicker">Categoria</p>
+          <h1>Niño</h1>
+          <p>Seccion preparada para relojes infantiles cuando haya enlaces reales.</p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="plain-card reveal">
+          <h2>Buscar futuros relojes infantiles</h2>
+          <p>Aun no hay productos infantiles en `LINKS.TXT`, pero el filtro queda preparado.</p>
+          <form class="watch-filters light-filters" aria-label="Buscar y filtrar relojes infantiles">
+            <label>
+              <span>Buscar</span>
+              <input class="watch-search" type="search" placeholder="Buscar reloj infantil">
+            </label>
+            <label>
+              <span>Precio maximo</span>
+              <select class="watch-price">
+                <option value="all">Todos</option>
+                <option value="50">Hasta 50€</option>
+                <option value="100">Hasta 100€</option>
+                <option value="150">Hasta 150€</option>
+              </select>
+            </label>
+            <label>
+              <span>Estilo</span>
+              <select class="watch-style">
+                <option value="all">Todos</option>
+                <option value="deportivo">Deportivo</option>
+                <option value="elegante">Elegante</option>
+                <option value="digital">Digital</option>
+              </select>
+            </label>
+          </form>
+          <p class="filter-empty">Cuando añadas un reloj infantil, aparecera aqui.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer><div class="footer-inner"><span>StyleSelect</span><span>Categoria Niño.</span></div></footer>
+    <script src="script.js"></script>
+  </body>
+</html>

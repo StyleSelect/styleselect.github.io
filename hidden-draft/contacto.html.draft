@@ -1,0 +1,9 @@
+<!doctype html>
+<html lang="es">
+  <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>StyleSelect | Contacto</title><link rel="stylesheet" href="styles.css"></head>
+  <body>
+    <header class="site-header solid"><nav class="nav" aria-label="Navegacion principal"><a class="brand" href="index.html">StyleSelect</a><div class="nav-links"><a href="index.html">Inicio</a><a href="catalogo.html">Catalogo</a><div class="dropdown"><button class="drop-button" type="button">Categorias</button><div class="drop-menu"><a href="categorias.html">Todas</a><a href="hombre.html">Hombre</a><a href="mujer.html">Mujer</a><a href="nino.html">Niño</a></div></div><a href="afiliacion.html">Afiliacion</a><a href="contacto.html">Contacto</a></div></nav></header>
+    <main><section class="page-hero"><div><p class="kicker">Contacto</p><h1>Propón un reloj</h1><p>Envia modelo, enlace de Amazon y carpeta de fotos.</p></div></section><section class="section"><div class="contact-panel reveal"><div><h2>Nuevo producto</h2><p>Cuando tengas el enlace real, ponlo en `LINKS.TXT` junto al nombre de la carpeta y actualizo la web.</p></div><a class="button button-dark" href="mailto:contacto@styleselect.es">contacto@styleselect.es</a></div></section></main>
+    <footer><div class="footer-inner"><span>StyleSelect</span><span>Contacto.</span></div></footer><script src="script.js"></script>
+  </body>
+</html>
