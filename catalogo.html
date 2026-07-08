@@ -4,165 +4,175 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>StyleSelect | Catalogo</title>
-    <meta name="description" content="Catalogo de relojes seleccionados por StyleSelect.">
+    <meta name="description" content="Relojes destacados por StyleSelect con precio visible y compra directa en Amazon.">
     <link rel="stylesheet" href="styles.css">
   </head>
-  <body>
+  <body class="catalog-page">
     <header class="site-header solid">
       <nav class="nav" aria-label="Navegacion principal">
         <a class="brand" href="index.html">StyleSelect</a>
         <div class="nav-links">
           <a href="index.html">Inicio</a>
           <a href="catalogo.html">Catalogo</a>
-          <a href="hombre.html">Hombre</a>
+          <div class="dropdown">
+            <button class="drop-button" type="button">Categorias</button>
+            <div class="drop-menu">
+              <a href="categorias.html">Todas</a>
+              <a href="hombre.html">Hombre</a>
+              <a href="mujer.html">Mujer</a>
+              <a href="nino.html">Niño</a>
+            </div>
+          </div>
+          <a href="afiliacion.html">Afiliacion</a>
+          <a href="contacto.html">Contacto</a>
         </div>
+        <div class="nav-tools" aria-label="Preferencias de la web"></div>
       </nav>
     </header>
 
     <main>
-      <section class="page-hero">
-        <div>
-          <p class="kicker">Catalogo</p>
-          <h1>Seleccion actual</h1>
-          <p>Fotos interactivas, miniaturas y compra directa en Amazon.</p>
+      <section class="catalog-hero" aria-label="Catalogo destacado">
+        <div class="luxury-bg" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="catalog-hero-copy reveal">
+          <p class="kicker">Destacados StyleSelect</p>
+          <h1 data-i18n="catalogTitle">Descubre tu estilo.</h1>
+          <p data-i18n="catalogCopy">
+            Pocas piezas, mejor ordenadas: automaticos, lujo y opciones asequibles que puedes filtrar sin ver un muro de productos.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#destacados" data-i18n="viewFeatured">Ver destacados</a>
+            <a class="button button-ghost" href="categorias.html">Ver categorias</a>
+          </div>
         </div>
       </section>
 
-      <section class="section">
-        <div class="catalog-motion reveal" aria-label="Vista animada del catalogo">
-          <div class="motion-track" aria-hidden="true">
-            <img src="images/PaganiDesignPD1644_RolexDaytona/foto2.jpg" alt="">
-            <img src="images/PaganiDesignDD40_RolexDatejust/foto1.jpg" alt="">
-            <img src="images/PaganiDesignPD1728_PatekPhilipeNautilus/foto1.jpg" alt="">
-            <img src="images/PaganiDesignPD1644_RolexDaytona/foto1.jpg" alt="">
-          </div>
-          <div class="motion-copy">
-            <p class="kicker">Catalogo vivo</p>
-            <h2 class="script-title">Mueve el raton y descubre el brillo.</h2>
-            <p>Pasa por el bloque y usa las miniaturas de cada reloj para ver distintas fotos.</p>
+      <section id="destacados" class="featured-section">
+        <div class="featured-heading reveal">
+          <div>
+            <p class="kicker">Catalogo</p>
+            <h2 data-i18n="featuredTitle">Filtra por estilo</h2>
+            <p>Arranca en automaticos, cambia a lujo, asequibles o deportivos, y mira solo lo que encaja.</p>
           </div>
         </div>
 
-        <div class="catalog-section-grid reveal" aria-label="Apartados del catalogo">
-          <a class="catalog-section-card section-featured" href="hombre.html">
-            <span>Destacados</span>
-            <h2>Los relojes con mas presencia visual.</h2>
-          </a>
-          <a class="catalog-section-card section-luxury" href="hombre.html">
-            <span>Lujo</span>
-            <h2>Acabados premium, acero y detalles elegantes.</h2>
-          </a>
-          <a class="catalog-section-card section-auto" href="hombre.html">
-            <span>Automaticos</span>
-            <h2>Piezas con movimiento automatico y caracter.</h2>
-          </a>
-          <a class="catalog-section-card section-sport" href="hombre.html">
-            <span>Deportivos</span>
-            <h2>Cronografos, GMT y diseños de impacto.</h2>
-          </a>
+        <div class="catalog-switcher reveal" aria-label="Elegir estilo del catalogo">
+          <button class="catalog-chip is-active" type="button" data-catalog-filter="automatico">
+            <span class="chip-icon chip-auto" aria-hidden="true"></span>
+            <strong>Automaticos</strong>
+            <small>Movimiento, presencia y esfera con vida.</small>
+          </button>
+          <button class="catalog-chip" type="button" data-catalog-filter="lujo">
+            <span class="chip-icon chip-luxury" aria-hidden="true"></span>
+            <strong>Lujo</strong>
+            <small>Acabados mas limpios y look premium.</small>
+          </button>
+          <button class="catalog-chip" type="button" data-catalog-filter="asequible">
+            <span class="chip-icon chip-affordable" aria-hidden="true"></span>
+            <strong>Asequibles</strong>
+            <small>Las opciones que entran mejor por precio.</small>
+          </button>
+          <button class="catalog-chip" type="button" data-catalog-filter="deportivo">
+            <span class="chip-icon chip-sport" aria-hidden="true"></span>
+            <strong>Deportivos</strong>
+            <small>Mas angulo, mas contraste y mas energia.</small>
+          </button>
         </div>
 
-        <div class="product-list">
-          <article class="product-card">
-            <section class="gallery" aria-label="Fotos del reloj Pagani Design PD-1644">
-              <div class="image-stage">
-                <img class="product-image" src="images/PaganiDesignPD1644_RolexDaytona/foto2.jpg" alt="Reloj Pagani Design PD-1644 con brazalete metalico">
-              </div>
-              <div class="thumb-row" aria-label="Seleccionar foto del Pagani Design PD-1644">
-                <button class="thumb-button is-active" type="button" data-image="images/PaganiDesignPD1644_RolexDaytona/foto2.jpg" data-alt="Reloj Pagani Design PD-1644 con brazalete metalico" aria-label="Ver foto trasera del PD-1644" aria-pressed="true">
-                  <img class="thumb" src="images/PaganiDesignPD1644_RolexDaytona/foto2.jpg" alt="">
-                </button>
-                <button class="thumb-button" type="button" data-image="images/PaganiDesignPD1644_RolexDaytona/foto1.jpg" data-alt="Vista frontal del reloj Pagani Design PD-1644" aria-label="Ver foto frontal del PD-1644" aria-pressed="false">
-                  <img class="thumb" src="images/PaganiDesignPD1644_RolexDaytona/foto1.jpg" alt="">
-                </button>
-              </div>
-            </section>
-            <section class="product-info">
-              <p class="kicker">Cronografo deportivo</p>
-              <h2>Pagani Design PD-1644</h2>
-              <p class="description">Reloj de estilo deportivo y elegante, con brazalete metalico y presencia contundente en la muneca.</p>
-              <ul class="features">
-                <li>Diseno inspirado en cronografos clasicos.</li>
-                <li>Acabado metalico sobrio.</li>
-                <li>Compra externa mediante Amazon.</li>
-              </ul>
-              <div class="buy-row">
-                <a class="button button-dark" href="https://amzn.to/4vBVg6s" target="_blank" rel="noopener noreferrer">Comprar en Amazon</a>
-                <span class="price-note">Precio y disponibilidad en Amazon</span>
-              </div>
-            </section>
+        <form class="watch-filters featured-filters reveal" aria-label="Filtrar relojes destacados">
+          <label>
+            <span>Buscar</span>
+            <input class="watch-search" type="search" placeholder="Modelo o estilo">
+          </label>
+          <label>
+            <span>Precio maximo</span>
+            <select class="watch-price">
+              <option value="all">Todos</option>
+              <option value="50">Hasta 50€</option>
+              <option value="100">Hasta 100€</option>
+              <option value="150">Hasta 150€</option>
+              <option value="200">Hasta 200€</option>
+            </select>
+          </label>
+          <label>
+            <span>Estilo</span>
+            <select class="watch-style">
+              <option value="all">Todos</option>
+              <option value="deportivo">Deportivo</option>
+              <option value="elegante">Elegante</option>
+              <option value="automatico">Automatico</option>
+              <option value="moderno">Moderno</option>
+              <option value="lujo">Lujo</option>
+              <option value="asequible">Asequible</option>
+            </select>
+          </label>
+        </form>
+
+        <p class="filter-empty" hidden>No hay relojes que coincidan con esos filtros.</p>
+
+        <div class="featured-grid watch-grid">
+          <article class="featured-watch main-feature reveal watch-item" data-name="pagani design pd-1662 gmt azul negro deportivo elegante" data-price="175" data-style="deportivo elegante automatico lujo" data-categories="automatico lujo deportivo">
+            <a href="producto-pd1662.html" aria-label="Ver Pagani Design PD-1662 GMT">
+              <img src="images/Pagani%20desing%20%20PD-1662%20GMT_RolexSubmariner/1.jpg" alt="Pagani Design PD-1662 GMT">
+              <span class="watch-tag">GMT destacado</span>
+              <h3>Pagani Design PD-1662 GMT</h3>
+              <p>Bisel azul y negro, brazalete metalico y presencia fuerte.</p>
+              <strong class="watch-price-output" data-eur="175">175€</strong>
+            </a>
           </article>
 
-          <article class="product-card">
-            <section class="gallery" aria-label="Fotos del reloj Pagani Design DD40">
-              <div class="image-stage">
-                <img class="product-image" src="images/PaganiDesignDD40_RolexDatejust/foto1.jpg" alt="Vista frontal del reloj Pagani Design DD40 con esfera azul">
-              </div>
-              <div class="thumb-row" aria-label="Seleccionar foto del Pagani Design DD40">
-                <button class="thumb-button is-active" type="button" data-image="images/PaganiDesignDD40_RolexDatejust/foto1.jpg" data-alt="Vista frontal del reloj Pagani Design DD40 con esfera azul" aria-label="Ver foto frontal del DD40" aria-pressed="true">
-                  <img class="thumb" src="images/PaganiDesignDD40_RolexDatejust/foto1.jpg" alt="">
-                </button>
-                <button class="thumb-button" type="button" data-image="images/PaganiDesignDD40_RolexDatejust/foto2.jpg" data-alt="Reloj Pagani Design DD40 con brazalete metalico" aria-label="Ver segunda foto del DD40" aria-pressed="false">
-                  <img class="thumb" src="images/PaganiDesignDD40_RolexDatejust/foto2.jpg" alt="">
-                </button>
-                <button class="thumb-button" type="button" data-image="images/PaganiDesignDD40_RolexDatejust/foto3.jpg" data-alt="Detalle del reloj Pagani Design DD40" aria-label="Ver detalle del DD40" aria-pressed="false">
-                  <img class="thumb" src="images/PaganiDesignDD40_RolexDatejust/foto3.jpg" alt="">
-                </button>
-              </div>
-            </section>
-            <section class="product-info">
-              <p class="kicker">Automatico con esfera azul</p>
-              <h2>Pagani Design DD40</h2>
-              <p class="description">Reloj automatico con esfera azul clara, bisel estriado y brazalete metalico.</p>
-              <ul class="features">
-                <li>Esfera azul con dia y fecha visibles.</li>
-                <li>Brazalete metalico y bisel estriado.</li>
-                <li>Compra externa mediante Amazon.</li>
-              </ul>
-              <div class="buy-row">
-                <a class="button button-dark" href="https://amzn.to/3SycjHV" target="_blank" rel="noopener noreferrer">Comprar en Amazon</a>
-                <span class="price-note">Precio y disponibilidad en Amazon</span>
-              </div>
-            </section>
+          <article class="featured-watch reveal watch-item" data-name="pagani design dd40 automatico azul elegante lujo" data-price="154" data-style="automatico elegante lujo" data-categories="automatico lujo">
+            <a href="producto-dd40.html" aria-label="Ver Pagani Design DD40">
+              <img src="assets/products/dd40-transparent.png" alt="Pagani Design DD40">
+              <span class="watch-tag">Elegante</span>
+              <h3>Pagani Design DD40</h3>
+              <p>Automatico, esfera azul clara y bisel estriado.</p>
+              <strong class="watch-price-output" data-eur="154">154€</strong>
+            </a>
           </article>
 
-          <article class="product-card">
-            <section class="gallery" aria-label="Fotos del reloj Pagani Design PD-1728">
-              <div class="image-stage">
-                <img class="product-image" src="images/PaganiDesignPD1728_PatekPhilipeNautilus/foto1.jpg" alt="Vista frontal del reloj Pagani Design PD-1728 con esfera azul">
-              </div>
-              <div class="thumb-row" aria-label="Seleccionar foto del Pagani Design PD-1728">
-                <button class="thumb-button is-active" type="button" data-image="images/PaganiDesignPD1728_PatekPhilipeNautilus/foto1.jpg" data-alt="Vista frontal del reloj Pagani Design PD-1728 con esfera azul" aria-label="Ver foto frontal del PD-1728" aria-pressed="true">
-                  <img class="thumb" src="images/PaganiDesignPD1728_PatekPhilipeNautilus/foto1.jpg" alt="">
-                </button>
-                <button class="thumb-button" type="button" data-image="images/PaganiDesignPD1728_PatekPhilipeNautilus/foto2.jpg" data-alt="Reloj Pagani Design PD-1728 con brazalete metalico" aria-label="Ver segunda foto del PD-1728" aria-pressed="false">
-                  <img class="thumb" src="images/PaganiDesignPD1728_PatekPhilipeNautilus/foto2.jpg" alt="">
-                </button>
-                <button class="thumb-button" type="button" data-image="images/PaganiDesignPD1728_PatekPhilipeNautilus/foto3.jpg" data-alt="Detalle del reloj Pagani Design PD-1728" aria-label="Ver detalle del PD-1728" aria-pressed="false">
-                  <img class="thumb" src="images/PaganiDesignPD1728_PatekPhilipeNautilus/foto3.jpg" alt="">
-                </button>
-              </div>
-            </section>
-            <section class="product-info">
-              <p class="kicker">Automatico de estilo integrado</p>
-              <h2>Pagani Design PD-1728</h2>
-              <p class="description">Reloj automatico con esfera azul texturizada, caja deportiva y brazalete metalico integrado.</p>
-              <ul class="features">
-                <li>Esfera azul con textura horizontal.</li>
-                <li>Caja deportiva con brazalete integrado.</li>
-                <li>Compra externa mediante Amazon.</li>
-              </ul>
-              <div class="buy-row">
-                <a class="button button-dark" href="https://amzn.to/4vvlebv" target="_blank" rel="noopener noreferrer">Comprar en Amazon</a>
-                <span class="price-note">Precio y disponibilidad en Amazon</span>
-              </div>
-            </section>
+          <article class="featured-watch reveal watch-item" data-name="pagani design pd-1728 automatico nautilus azul deportivo elegante" data-price="139" data-style="automatico elegante deportivo" data-categories="automatico lujo">
+            <a href="producto-pd1728.html" aria-label="Ver Pagani Design PD-1728">
+              <img src="assets/products/pd1728-transparent.png" alt="Pagani Design PD-1728">
+              <span class="watch-tag">Automatico</span>
+              <h3>Pagani Design PD-1728</h3>
+              <p>Azul texturizado, brazalete integrado y forma moderna.</p>
+              <strong class="watch-price-output" data-eur="139">139€</strong>
+            </a>
+          </article>
+
+          <article class="featured-watch reveal watch-item" data-name="pagani design pd-1644 cronografo deportivo acero" data-price="129" data-style="deportivo elegante" data-categories="deportivo lujo">
+            <a href="producto-pd1644.html" aria-label="Ver Pagani Design PD-1644">
+              <img src="images/PaganiDesignPD1644_RolexDaytona/foto2.jpg" alt="Pagani Design PD-1644">
+              <span class="watch-tag">Cronografo</span>
+              <h3>Pagani Design PD-1644</h3>
+              <p>Cronografo con acero y look potente para diario.</p>
+              <strong class="watch-price-output" data-eur="129">129€</strong>
+            </a>
+          </article>
+
+          <article class="featured-watch value-feature reveal watch-item" data-name="megalith 8290m deportivo moderno negro dorado" data-price="38" data-style="deportivo moderno" data-categories="asequible moderno deportivo">
+            <a href="producto-megalith-8290m.html" aria-label="Ver Megalith 8290M">
+              <img src="assets/products/megalith-8290m-transparent.png" alt="Megalith 8290M">
+              <span class="watch-tag">Precio fuerte</span>
+              <h3>Megalith 8290M</h3>
+              <p>Estetica agresiva, negro y dorado por menos de 50€.</p>
+              <strong class="watch-price-output" data-eur="38">38€</strong>
+            </a>
           </article>
         </div>
       </section>
     </main>
 
-    <footer><div class="footer-inner"><span>StyleSelect</span><span>Revisa valoraciones, precio final y condiciones de envio antes de comprar.</span></div></footer>
+    <footer>
+      <div class="footer-inner">
+        <span>StyleSelect</span>
+        <span>Precios orientativos. Revisa siempre precio final, envio y disponibilidad en Amazon.</span>
+      </div>
+    </footer>
     <script src="script.js"></script>
   </body>
 </html>
