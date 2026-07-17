@@ -551,6 +551,13 @@ a {
   background: radial-gradient(circle at 50% 42%, rgba(255, 255, 255, 0.95), rgba(235, 228, 216, 0.8) 58%, rgba(206, 195, 176, 0.68));
 }
 
+.image-stage-dark {
+  border-color: rgba(255, 255, 255, 0.1);
+  background:
+    radial-gradient(circle at 50% 38%, rgba(228, 198, 120, 0.18), transparent 44%),
+    linear-gradient(145deg, #17211d, #050606 74%);
+}
+
 .product-image {
   display: block;
   width: 100%;
