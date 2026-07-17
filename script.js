@@ -10,6 +10,8 @@ let languageSelects = document.querySelectorAll(".language-select");
 const watchFilterUpdaters = [];
 const googleAnalyticsId = "G-1JD110B3B4";
 const analyticsConsentKey = "styleselectAnalyticsConsent";
+const newProductsSeenKey = "styleselectSeenNewProducts";
+const listingReturnKey = "styleselectListingReturn";
 let activeCatalogCategory = catalogFilterButtons.length > 0
   ? localStorage.getItem("styleselectCatalogCategory") || "automatico"
   : "all";
@@ -134,6 +136,148 @@ const syncAnalyticsConsent = () => {
   }
 
   showCookieBanner();
+};
+
+const syncNewProductBadges = () => {
+  const newProducts = document.querySelectorAll(".is-new");
+
+  if (newProducts.length === 0) {
+    return;
+  }
+
+  let seenProducts = [];
+
+  try {
+    seenProducts = JSON.parse(localStorage.getItem(newProductsSeenKey) || "[]");
+  } catch (error) {
+    seenProducts = [];
+  }
+
+  const seenProductSet = new Set(seenProducts);
+
+  newProducts.forEach((product, index) => {
+    const productId = product.getAttribute("href") || product.dataset.name || `new-product-${index}`;
+
+    if (seenProductSet.has(productId)) {
+      product.classList.remove("is-new");
+      return;
+    }
+
+    seenProductSet.add(productId);
+  });
+
+  localStorage.setItem(newProductsSeenKey, JSON.stringify([...seenProductSet]));
+};
+
+const getCurrentPage = () => `${window.location.pathname}${window.location.search}${window.location.hash}`;
+
+const saveListingReturnPoint = () => {
+  sessionStorage.setItem(listingReturnKey, JSON.stringify({
+    page: getCurrentPage(),
+    scrollY: window.scrollY,
+    savedAt: Date.now()
+  }));
+};
+
+const restoreListingReturnPoint = () => {
+  let returnPoint = null;
+
+  try {
+    returnPoint = JSON.parse(sessionStorage.getItem(listingReturnKey) || "null");
+  } catch (error) {
+    returnPoint = null;
+  }
+
+  if (!returnPoint || returnPoint.page !== getCurrentPage()) {
+    return;
+  }
+
+  sessionStorage.removeItem(listingReturnKey);
+  window.setTimeout(() => window.scrollTo(0, Number(returnPoint.scrollY) || 0), 80);
+};
+
+const setupProductReturnFlow = () => {
+  document.querySelectorAll(".watch-item[href^='producto-'], .women-product-card a[href^='producto-'], .featured-watch a[href^='producto-']").forEach((link) => {
+    link.addEventListener("click", saveListingReturnPoint);
+  });
+
+  const detailBack = document.querySelector(".detail-back");
+
+  if (!detailBack) {
+    return;
+  }
+
+  detailBack.textContent = "Atras";
+  detailBack.addEventListener("click", (event) => {
+    let returnPoint = null;
+
+    try {
+      returnPoint = JSON.parse(sessionStorage.getItem(listingReturnKey) || "null");
+    } catch (error) {
+      returnPoint = null;
+    }
+
+    if (returnPoint?.page) {
+      event.preventDefault();
+      window.location.href = returnPoint.page;
+      return;
+    }
+
+    const previousUrl = document.referrer ? new URL(document.referrer) : null;
+    const canGoBack = previousUrl
+      && previousUrl.origin === window.location.origin
+      && /\/(hombre|mujer|catalogo|categorias)\.html$/.test(previousUrl.pathname);
+
+    if (canGoBack) {
+      event.preventDefault();
+      window.history.back();
+    }
+  });
+};
+
+const setupDirectPurchaseBar = () => {
+  const buyLink = document.querySelector(".buy-row a[href*='amzn.to'], .buy-row a[href*='amazon.']");
+
+  if (!buyLink) {
+    return;
+  }
+
+  buyLink.textContent = "Comprar ahora en Amazon";
+  buyLink.classList.add("button-buy-now");
+  document.body.classList.add("has-sticky-buy");
+
+  const productName = document.querySelector(".product-detail-copy h1")?.textContent?.trim() || document.title;
+  const price = document.querySelector(".price-note .watch-price-output, .buy-row .watch-price-output")?.textContent?.trim() || "";
+  const bar = document.createElement("aside");
+  bar.className = "sticky-buy-bar";
+  bar.setAttribute("aria-label", "Compra rapida");
+  bar.innerHTML = `
+    <div class="sticky-buy-info">
+      <span>${productName}</span>
+      ${price ? `<strong>${price}</strong>` : ""}
+    </div>
+    <div class="sticky-buy-actions">
+      <button class="button button-ghost sticky-back" type="button">Atras</button>
+      <a class="button button-dark button-buy-now" href="${buyLink.href}" target="_blank" rel="noopener noreferrer">Comprar ahora</a>
+    </div>
+  `;
+
+  document.body.appendChild(bar);
+
+  bar.querySelector(".sticky-back")?.addEventListener("click", () => {
+    document.querySelector(".detail-back")?.click();
+  });
+
+  document.querySelectorAll("a[href*='amzn.to'], a[href*='amazon.']").forEach((link) => {
+    link.addEventListener("click", () => {
+      if (typeof window.gtag === "function") {
+        window.gtag("event", "amazon_click", {
+          item_name: productName,
+          link_url: link.href
+        });
+      }
+    });
+  });
 };
 
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -343,6 +487,10 @@ languageSelects.forEach((select) => {
 
 syncLocaleControls();
 syncAnalyticsConsent();
+syncNewProductBadges();
+setupProductReturnFlow();
+restoreListingReturnPoint();
+setupDirectPurchaseBar();
 
 document.querySelectorAll(".gallery").forEach((gallery) => {
   const mainImage = gallery.querySelector(".product-image");
