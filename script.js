@@ -8,6 +8,8 @@ const filterForms = document.querySelectorAll(".watch-filters");
 const catalogFilterButtons = document.querySelectorAll("[data-catalog-filter]");
 let languageSelects = document.querySelectorAll(".language-select");
 const watchFilterUpdaters = [];
+const googleAnalyticsId = "G-1JD110B3B4";
+const analyticsConsentKey = "styleselectAnalyticsConsent";
 let activeCatalogCategory = catalogFilterButtons.length > 0
   ? localStorage.getItem("styleselectCatalogCategory") || "automatico"
   : "all";
@@ -43,6 +45,96 @@ const updateHeader = () => {
 
 updateHeader();
 window.addEventListener("scroll", updateHeader, { passive: true });
+
+const loadGoogleAnalytics = () => {
+  if (window.styleselectAnalyticsLoaded) {
+    return;
+  }
+
+  window.styleselectAnalyticsLoaded = true;
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = function gtag() {
+    window.dataLayer.push(arguments);
+  };
+
+  const analyticsScript = document.createElement("script");
+  analyticsScript.async = true;
+  analyticsScript.src = `https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsId}`;
+  document.head.appendChild(analyticsScript);
+
+  window.gtag("js", new Date());
+  window.gtag("config", googleAnalyticsId);
+};
+
+const showCookieBanner = () => {
+  document.querySelector(".cookie-banner")?.remove();
+
+  const banner = document.createElement("section");
+  banner.className = "cookie-banner";
+  banner.setAttribute("aria-label", "Aviso de cookies");
+  banner.innerHTML = `
+    <div>
+      <p class="cookie-title">Cookies de analitica</p>
+      <p>
+        Usamos Google Analytics para medir visitas y mejorar StyleSelect. Solo se activa si aceptas.
+        Puedes rechazarlo y seguir usando la web con normalidad.
+      </p>
+    </div>
+    <div class="cookie-actions">
+      <button class="button button-ghost cookie-reject" type="button">Rechazar</button>
+      <button class="button button-primary cookie-accept" type="button">Aceptar</button>
+    </div>
+  `;
+
+  document.body.appendChild(banner);
+
+  banner.querySelector(".cookie-accept")?.addEventListener("click", () => {
+    localStorage.setItem(analyticsConsentKey, "accepted");
+    banner.remove();
+    showCookieSettingsButton();
+    loadGoogleAnalytics();
+  });
+
+  banner.querySelector(".cookie-reject")?.addEventListener("click", () => {
+    localStorage.setItem(analyticsConsentKey, "rejected");
+    banner.remove();
+    showCookieSettingsButton();
+  });
+};
+
+const showCookieSettingsButton = () => {
+  if (document.querySelector(".cookie-settings-button")) {
+    return;
+  }
+
+  const button = document.createElement("button");
+  button.className = "cookie-settings-button";
+  button.type = "button";
+  button.textContent = "Cookies";
+  button.addEventListener("click", () => {
+    localStorage.removeItem(analyticsConsentKey);
+    showCookieBanner();
+  });
+
+  document.body.appendChild(button);
+};
+
+const syncAnalyticsConsent = () => {
+  const consent = localStorage.getItem(analyticsConsentKey);
+
+  if (consent === "accepted") {
+    showCookieSettingsButton();
+    loadGoogleAnalytics();
+    return;
+  }
+
+  if (consent === "rejected") {
+    showCookieSettingsButton();
+    return;
+  }
+
+  showCookieBanner();
+};
 
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
@@ -250,6 +342,7 @@ languageSelects.forEach((select) => {
 });
 
 syncLocaleControls();
+syncAnalyticsConsent();
 
 document.querySelectorAll(".gallery").forEach((gallery) => {
   const mainImage = gallery.querySelector(".product-image");

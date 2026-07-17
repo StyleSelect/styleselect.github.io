@@ -1479,6 +1479,80 @@ a {
   font-size: 24px;
 }
 
+.cookie-banner {
+  position: fixed;
+  left: 50%;
+  bottom: max(18px, env(safe-area-inset-bottom));
+  z-index: 60;
+  width: min(760px, calc(100% - 28px));
+  max-height: calc(100dvh - 28px);
+  padding: 18px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 18px;
+  align-items: center;
+  border: 1px solid rgba(18, 20, 18, 0.16);
+  border-radius: 8px;
+  color: var(--ink);
+  background: rgba(251, 250, 246, 0.98);
+  box-shadow: var(--shadow);
+  transform: translateX(-50%);
+  overflow: auto;
+}
+
+.cookie-banner p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.cookie-banner .cookie-title {
+  margin-bottom: 4px;
+  color: var(--ink);
+  font-weight: 900;
+}
+
+.cookie-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.cookie-actions .button {
+  min-height: 44px;
+  min-width: 116px;
+}
+
+.cookie-actions .button-primary {
+  color: var(--white);
+  background: var(--forest);
+}
+
+.cookie-actions .button-ghost {
+  color: var(--ink);
+  border-color: rgba(18, 20, 18, 0.2);
+  background: var(--white);
+}
+
+.cookie-settings-button {
+  position: fixed;
+  left: 14px;
+  bottom: max(14px, env(safe-area-inset-bottom));
+  z-index: 50;
+  min-height: 38px;
+  padding: 0 14px;
+  border: 1px solid rgba(18, 20, 18, 0.14);
+  border-radius: 999px;
+  color: var(--ink);
+  background: rgba(251, 250, 246, 0.94);
+  box-shadow: 0 12px 30px rgba(18, 20, 18, 0.14);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
 .main-feature {
   grid-column: span 2;
 }
@@ -1965,6 +2039,21 @@ footer {
 
   .button {
     width: 100%;
+  }
+
+  .cookie-banner {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    padding: 16px;
+  }
+
+  .cookie-actions .button {
+    flex: 1 1 0;
+    width: auto;
+  }
+
+  .cookie-settings-button {
+    width: auto;
   }
 
   .buy-row {
